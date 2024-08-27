@@ -1,0 +1,13 @@
+def isValid(self, s: str) -> bool:
+    Dictionary = {")": "(", "]": "[", "}": "{"}
+    stack = []
+
+    for c in s:
+        if c not in Dictionary:
+            stack.append(c)
+            continue
+        if not stack or stack[-1] != Dictionary[c]:
+            return False
+        stack.pop()
+
+    return not stack
